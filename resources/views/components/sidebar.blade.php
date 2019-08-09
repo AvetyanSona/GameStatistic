@@ -7,23 +7,26 @@
 
     {{--  Side bar middle part  --}}
     <div class="list-group list-group-flush justify-content-start">
-        <a href="#" class="active text-center list-group-item list-group-item-action">
+        <a href="#" class="text-center list-group-item list-group-item-action">
             <img src="{{ asset('images/fortnite.png') }}" alt="Fortnite Logo" width="30px">
         </a>
         <a href="#" class="text-center list-group-item list-group-item-action">
-            <img src="{{ asset('images/lol.png') }}" alt="CSGO Logo" width="30px">
+            <img src="{{ asset('images/lol.png') }}" alt="LOL Logo" width="30px">
         </a>
         <a href="#" class="text-center list-group-item list-group-item-action">
-            <img src="{{ asset('images/hearthstone.png') }}" alt="CSGO Logo" width="30px">
+            <img src="{{ asset('images/hearthstone.png') }}" alt="HearthStone Logo" width="30px">
         </a>
         <a href="#" class="text-center list-group-item list-group-item-action">
             <img src="{{ asset('images/csgo.png') }}" alt="CSGO Logo" width="30px">
         </a>
         <a href="#" class="text-center list-group-item list-group-item-action">
-            <img src="{{ asset('images/overwatch.png') }}" alt="CSGO Logo" width="30px">
+            <img src="{{ asset('images/overwatch.png') }}" alt="OverWatch Logo" width="30px">
         </a>
         <a href="#" class="text-center list-group-item list-group-item-action">
-            <img src="{{ asset('images/dota.png') }}" alt="CSGO Logo" width="30px">
+            <img src="{{ asset('images/dota.png') }}" alt="Dota Logo" width="30px">
+        </a>
+        <a href="#" class="text-center list-group-item list-group-item-action">
+            <img src="{{ asset('images/wot.png') }}" alt="WOT Logo" width="30px">
         </a>
     </div>
 

@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::get('logout', 'Auth\LoginController@');
+
 Route::namespace('Frontend')->group(function () {
     Route::get('/', 'MainController@index');
 });
@@ -21,4 +23,7 @@ Route::namespace('Admin')->group(function () {
 
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+
+});
