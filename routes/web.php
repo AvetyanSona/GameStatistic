@@ -15,15 +15,19 @@ Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@');
 
-Route::namespace('Frontend')->group(function () {
-    Route::get('/', 'MainController@index');
-});
-
-Route::namespace('Admin')->group(function () {
-
-});
-
 Route::middleware('auth')->group(function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::namespace('Admin')->group(function () {
+        Route::get('/', 'MainController@index')->name('main');
 
+        Route::view('/fortnite','pages.fortnite')->name('fortnite');
+        Route::view('/lol','pages.lol')->name('lol');
+        Route::view('/hearthstone','pages.hearthstone')->name('hearthstone');
+        Route::view('/csgo','pages.csgo')->name('csgo');
+        Route::view('/overwatch','pages.overwatch')->name('overwatch');
+        Route::view('/dota2','pages.dota2')->name('dota2');
+        Route::view('/wot','pages.wot')->name('wot');
+
+        Route::post('/wot/wot-search','WOT\WOTController@getUserStats')->name('wot-search');
+        Route::get('/wot/main','WOT\WOTController@index');
+    });
 });

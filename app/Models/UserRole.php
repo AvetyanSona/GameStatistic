@@ -9,6 +9,6 @@ class UserRole extends Model
     protected $guarded = [];
 
     public function users(){
-//        dd('hgfh');
+//
     }
 }
