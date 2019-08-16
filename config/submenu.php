@@ -33,7 +33,8 @@ return [
 //        'submenu-a' => 'Submenu R',
 //    ],
     'wot' => [
-        'wot-search' => 'Search',
+        'wot.statistics' => 'Statistics',
+        'wot.news' => 'News'
 //        'https://ckeditor.com/ckeditor-5/demo/' => 'News',
 //        'wot-search' => 'Submenu U',
     ]

@@ -81,4 +81,20 @@ $('.tab a').on('click', function (e) {
 
 });
 
+$('#search').on('keyup',function (e){
+    var nickname = $(this).val();
+    if(e.keyCode === 13){
+       $.ajax({
+           type:'post',
+           url:'/wot/statistics/request',
+           data:{
+               nickname:nickname,
+           },
+           dataType: 'json'
+       }).done( function(res) {
+            $('#statistic').html(res.html);
+       }).fail(function (jqXHR, textStatus, error) {
 
+       });
+    }
+})

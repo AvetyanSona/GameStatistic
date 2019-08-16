@@ -19,15 +19,13 @@ Route::middleware('auth')->group(function () {
     Route::namespace('Admin')->group(function () {
         Route::get('/', 'MainController@index')->name('main');
 
-        Route::view('/fortnite','pages.fortnite')->name('fortnite');
-        Route::view('/lol','pages.lol')->name('lol');
-        Route::view('/hearthstone','pages.hearthstone')->name('hearthstone');
-        Route::view('/csgo','pages.csgo')->name('csgo');
-        Route::view('/overwatch','pages.overwatch')->name('overwatch');
-        Route::view('/dota2','pages.dota2')->name('dota2');
-        Route::view('/wot','pages.wot')->name('wot');
+        Route::namespace('WOT')->group(function () {
+            Route::get('/wot', 'WOTController@index')->name('wot');
 
-        Route::post('/wot/wot-search','WOT\WOTController@getUserStats')->name('wot-search');
-        Route::get('/wot/main','WOT\WOTController@index');
+            Route::get('/wot/statistics','WOTController@statistics')->name('wot.statistics');
+            Route::post('/wot/statistics/request','WOTController@getUserStats')->name('wot-search-request');
+
+            Route::get('/wot/wot-news','WOTController@news')->name('wot.news');
+        });
     });
 });
