@@ -13,7 +13,6 @@ class WOTNewsTableSeeder extends Seeder
      */
     public function run()
     {
-        $new = factory(WOTNew::create());
-        $news = factory(WOTNew::class, 3)->create();
+        factory(WOTNew::class, 3)->create();
     }
 }

@@ -8,7 +8,8 @@ class UserRole extends Model
 {
     protected $guarded = [];
 
-    public function users(){
-//
+    public function users()
+    {
+        //
     }
 }

@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/wot/statistics/request','WOTController@getUserStats')->name('wot-search-request');
 
             Route::get('/wot/wot-news','WOTController@news')->name('wot.news');
+            Route::get('/wot/wot-news/{id}','WOTController@moreNews')->name('wot.news.more');
         });
     });
 });

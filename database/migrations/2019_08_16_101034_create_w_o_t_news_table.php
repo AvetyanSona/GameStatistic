@@ -16,7 +16,7 @@ class CreateWOTNewsTable extends Migration
         Schema::create('w_o_t_news', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('content');
+            $table->text('content');
             $table->integer('creator_id');
             $table->string('main_picture');
             $table->timestamps();

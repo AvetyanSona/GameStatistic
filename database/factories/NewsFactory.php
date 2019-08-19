@@ -4,13 +4,14 @@
 
 use App\Models\WOTNew;
 use Faker\Generator as Faker;
+use App\Models\User;
 
 $factory->define(WOTNew::class, function (Faker $faker) {
     return [
-        'title' => $faker->randomHtml(1,2),
-        'content' => $faker->randomHtml(3,4),
+        'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+        'content' => file_get_contents('http://loripsum.net/api'),
         'creator_id' => function(){
-            return factory (App\Models\User::class)->where('role_id',3)->get()->random()->id;
+            return User::where('role_id', 3)->get()->random()->id;
         },
         'main_picture' => $faker->imageUrl($width = 640, $height = 480),
     ];

@@ -277,3 +277,15 @@ textarea {
 .no-border {
     border: none;
 }
+
+#newsContainer{
+    min-height: 100px;
+}
+
+#newsContainer p{
+    height: 25px;
+    max-width: 690px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

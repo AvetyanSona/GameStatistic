@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\WOT;
 
 use App\Models\WOTPlayer;
+use App\Models\WOTNew;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,6 +28,15 @@ class WOTController extends Controller
 
     public function news()
     {
+        $news = WOTNew::paginate(5);
+        return view('pages.wot-news', [
+            'news' => $news
+        ]);
+    }
+    public function moreNews(WOTNew $news,Request $request){
+        $news_id = $request->route('id');
+        $news_data = $news->where('id',$news_id)->get()->first();
+        return view('pages.wot-news-more',['news_data' => $news_data]);
     }
 
     public function getUserStats(Request $request)
