@@ -21,6 +21,17 @@ class WOTController extends Controller
         return view('pages.wot');
     }
 
+    public function show(WOTNew $news,Request $request)
+    {
+        $news_id = $request->route('id');
+        $news_data = $news->where('id',$news_id)->get()->first();
+        return view('pages.wot-news-more',['news_data' => $news_data]);
+    }
+
+    public function create()
+    {
+        return view('pages.wot-create-news');
+    }
     public function statistics()
     {
         return view('pages.wot-statistics');
@@ -33,11 +44,7 @@ class WOTController extends Controller
             'news' => $news
         ]);
     }
-    public function moreNews(WOTNew $news,Request $request){
-        $news_id = $request->route('id');
-        $news_data = $news->where('id',$news_id)->get()->first();
-        return view('pages.wot-news-more',['news_data' => $news_data]);
-    }
+
 
     public function getUserStats(Request $request)
     {

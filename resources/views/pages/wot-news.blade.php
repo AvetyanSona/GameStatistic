@@ -10,7 +10,7 @@
     <h1 class="m-0 mt-3">News Feed</h1>>
     @if(auth()->user()->role_id == 3 )
         <div class="d-flex justify-content-center mb-5">
-            <button class="btn btn-light" type="submit"><small class="text-muted">Add New</small></button>
+            <button class="btn btn-light"><a class="text-muted" href="{{route('wot.news.create')}}">Add New</a></button>
         </div>
     @endif
     @foreach ($news as $news_item)
@@ -24,7 +24,7 @@
                         <h2 class="card-title text-center text-light text-justify">{{$news_item->title}}</h2>
                         <div class="card-text" >{!! $news_item->content !!}</div>
                         <div class="d-flex justify-content-end">
-                            <button class="btn btn-light" type="submit"><a class="text-dark" href="{{ route('wot.news.more',$news_item->id) }}">Read More</a></button>
+                            <button class="btn btn-light" type="submit"><a class="text-dark" href="{{ route('wot.news.show',$news_item->id) }}">Read More</a></button>
                         </div>
                     </div>
                 </div>

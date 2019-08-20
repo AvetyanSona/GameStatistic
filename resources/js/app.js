@@ -98,3 +98,23 @@ $('#search').on('keyup',function (e){
        });
     }
 })
+
+
+
+
+
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#image_preview').show();
+            $('#image_preview').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#main_image").change(function () {
+    readURL(this);
+});

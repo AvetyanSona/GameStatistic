@@ -10918,3 +10918,7 @@ textarea {
   text-overflow: ellipsis;
 }
 
+#image_preview {
+  display: none;
+}
+

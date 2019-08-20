@@ -17,4 +17,5 @@
         <p class="card-text">{!! $news_data->content !!}</p>
     </div>
 </div>
+
 @endsection
