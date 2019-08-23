@@ -17,7 +17,7 @@
         <div id="newsContainer"  class="card mb-3 bg-transparent text-white " style="max-width: 1070px;">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{$news_item->main_picture}}}" class="card-img" alt="news_photo">
+                    <img src="{{asset($news_item->main_picture)}}" class="card-img" alt="news_photo">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body" >

@@ -24,7 +24,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/wot/statistics','WOTController@statistics')->name('wot.statistics');
             Route::post('/wot/statistics/request','WOTController@getUserStats')->name('wot-search-request');
             Route::get('/wot/wot-news','WOTController@news')->name('wot.news');
+
             Route::get('/wot/wot-news/create','WOTController@create')->name('wot.news.create');
+            Route::post('/wot/wot-news','WOTController@store')->name('wot.news.store');
+
             Route::get('/wot/wot-news/{id}','WOTController@show')->name('wot.news.show');
         });
     });

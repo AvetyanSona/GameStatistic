@@ -5,9 +5,14 @@ namespace App\Http\Controllers\Admin\WOT;
 use App\Models\WOTPlayer;
 use App\Models\WOTNew;
 use App\Models\User;
+use http\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class WOTController extends Controller
 {
@@ -30,8 +35,38 @@ class WOTController extends Controller
 
     public function create()
     {
+
         return view('pages.wot-create-news');
     }
+
+    public function store(WOTNew $news, Request $request)
+    {
+        dd($request->file('main_picture'));
+        $validation = Validator::make($request->all(), [
+            'content' => 'required',
+            'title' => 'required',
+            'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+        if($validation->passes()){
+            $path = Storage::putFile('public/images', $request->file('main_picture'));
+            $path = str_replace('public', 'storage', $path);
+            $title = $request->title;
+            $content = $request->content;
+            $user_id = auth()->user()->id;
+            $news = $news->create([
+                'title'  => $title,
+                'content' => $content,
+                'creator_id' => $user_id,
+                'main_picture' =>$path,
+            ]);
+        }else{
+            return Redirect::back()->withErrors($validation);
+        }
+
+        return redirect()->route('wot.news.create');
+
+    }
+
     public function statistics()
     {
         return view('pages.wot-statistics');

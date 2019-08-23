@@ -10922,3 +10922,20 @@ textarea {
   display: none;
 }
 
+#success {
+  display: none;
+}
+
+.note-editable {
+  height: 200px !important;
+}
+
+.note-toolbar {
+  background-color: white !important;
+  border-bottom: 1px solid black !important;
+}
+
+#danger {
+  display: none;
+}
+

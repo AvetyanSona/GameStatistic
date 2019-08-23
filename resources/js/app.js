@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('summernote');
 
 //window.Vue = require('vue');
 
@@ -99,8 +100,30 @@ $('#search').on('keyup',function (e){
     }
 })
 
-
-
+// $('#addNews').on('click',function (e){
+//     // var serialized = $("#form1:input,textarea").serialize();
+//     // console.log(serialized);return;
+//     var content = $('#summernote').val();
+//     var title = $('#title').val();
+//     var main_picture = $('#main_image');
+//     var formData = new FormData();
+//
+//     formData.append('content',content);
+//     formData.append('title', title);
+//     formData.append('main_picture', main_picture[0].files[0]);
+//     $.ajax({
+//         type:'post',
+//         url:'/wot/wot-news',
+//         data:formData,
+//         contentType: false,
+//         processData: false,
+//     }).done( function(res) {
+//         $('#success').show();
+//         // console.log('gdshcf');
+//     }).fail(function (jqXHR, textStatus, error) {
+//         $('#error').show()
+//     });
+// })
 
 
 function readURL(input) {
@@ -118,3 +141,21 @@ function readURL(input) {
 $("#main_image").change(function () {
     readURL(this);
 });
+
+$(document).ready(function() {
+    $('#summernote').summernote({
+        toolbar: [
+            // [groupName, [list of button]]
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+
+        ],
+        placeholder: 'Type your news here',
+    });
+});
+
+
